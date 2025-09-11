@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Kalyanathissa College - Prefect Duty Book Cover</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-gold: #fbbf24;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background-white: #ffffff;
+            --border-gray: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* A5 Page Dimensions */
+        .a5-page {
+            width: 148mm;
+            height: 210mm;
+            background: var(--background-white);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--primary-blue);
+        }
+
+        /* Background Pattern */
+        .a5-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                transparent 0%, 
+                rgba(59, 130, 246, 0.03) 25%, 
+                transparent 50%, 
+                rgba(59, 130, 246, 0.03) 75%, 
+                transparent 100%);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            padding: 15mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .logo-fallback {
+            color: white;
+            font-size: 20px;
+            display: none;
+        }
+
+        .school-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .school-subtitle {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .duty-badge {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .duty-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--border-gray);
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(209, 213, 219, 0.5);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .student-name {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .academic-year {
+            font-size: 11px;
+            color: var(--text-light);
+            font-weight: 500;
+            padding: 8px 15px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .decorative-line {
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--accent-gold) 25%, 
+                var(--primary-blue) 50%, 
+                var(--accent-gold) 75%, 
+                transparent 100%);
+            border-radius: 2px;
+            margin: 15px 0;
+        }
+
+        /* Icons */
+        .icon {
+            margin-right: 8px;
+            color: var(--secondary-blue);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            
+            .a5-page {
+                width: 148mm;
+                height: 210mm;
+                box-shadow: none;
+                border-radius: 0;
+                margin: 0;
+                page-break-inside: avoid;
+            }
+            
+            @page {
+                size: A5;
+                margin: 0;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .a5-page {
+                width: 90vw;
+                height: auto;
+                min-height: 70vh;
+            }
+            
+            .page-content {
+                padding: 20px;
+            }
+            
+            .school-name {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a5-page">
+        <div class="page-content">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="logo-container">
+                    <img src="1.png" alt="Sri Kalyanathissa College Logo" class="logo-image" id="schoolLogo">
+                    <i class="fas fa-graduation-cap logo-fallback" id="logoFallback"></i>
+                </div>
+                <h1 class="school-name">Sri Kalyanathissa College</h1>
+                <p class="school-subtitle">Excellence in Education</p>
+                <div class="decorative-line"></div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <div class="duty-badge">
+                    <i class="fas fa-shield-alt icon"></i>
+                    Prefect Duty Inspection
+                </div>
+
+                <div class="info-card">
+                    <div class="info-row">
+                        <span class="info-label">
+                            <i class="fas fa-user icon"></i>Student Name
+                        </span>
+                        <span class="info-value student-name">P. Shanudha Tirosh</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">
+                            <i class="fas fa-layer-group icon"></i>Grade
+                        </span>
+                        <span class="info-value">11-C</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">
+                            <i class="fas fa-crown icon"></i>Position
+                        </span>
+                        <span class="info-value">Senior Prefect</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">
+                            <i class="fas fa-calendar-alt icon"></i>Academic Year
+                        </span>
+                        <span class="info-value">2024-2025</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <div class="footer-section">
+                <div class="decorative-line"></div>
+                <div class="academic-year">
+                    <i class="fas fa-book icon"></i>
+                    Official Duty Record Book
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Handle image loading and fallback
+        document.addEventListener('DOMContentLoaded', function() {
+            const logoImage = document.getElementById('schoolLogo');
+            const logoFallback = document.getElementById('logoFallback');
+            
+            // Handle image load error
+            logoImage.addEventListener('error', function() {
+                this.style.display = 'none';
+                logoFallback.style.display = 'flex';
+            });
+            
+            // Handle successful image load
+            logoImage.addEventListener('load', function() {
+                this.style.display = 'block';
+                logoFallback.style.display = 'none';
+            });
+            
+            // Check if image is already loaded/cached
+            if (logoImage.complete && logoImage.naturalHeight !== 0) {
+                logoImage.style.display = 'block';
+                logoFallback.style.display = 'none';
+            } else {
+                logoImage.style.display = 'none';
+                logoFallback.style.display = 'flex';
+            }
+            
+            // Add hover effect to info card
+            const infoCard = document.querySelector('.info-card');
+            
+            infoCard.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+                this.style.boxShadow = '0 12px 35px rgba(0, 0, 0, 0.12)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            infoCard.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.08)';
+            });
+
+            // Add click effect to logo container
+            const logoContainer = document.querySelector('.logo-container');
+            logoContainer.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+
+            // Print functionality
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    window.print();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
