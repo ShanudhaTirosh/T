@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefect Duty Book Cover - Sri Kalyanathissa College</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2E8B57;
+            --secondary-green: #228B22;
+            --accent-gold: #FFD700;
+            --dark-green: #1B5E3F;
+            --light-green: #E8F5E8;
+            --text-dark: #2C3E50;
+            --border-color: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .duty-book-cover {
+            width: 148mm;
+            height: 210mm;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border: 3px solid var(--primary-green);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(46, 139, 87, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .duty-book-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(46, 139, 87, 0.05) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            padding: 15mm 10mm;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 20px;
+            background: var(--accent-gold);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        }
+
+        .school-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .school-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .school-logo i {
+            color: var(--primary-green);
+            font-size: 28px;
+        }
+
+        .school-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .document-title {
+            font-size: 12px;
+            font-weight: 500;
+            opacity: 0.95;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 18mm 15mm;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .duty-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+        }
+
+        .duty-subtitle {
+            font-size: 16px;
+            color: var(--dark-green);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .student-info {
+            background: rgba(46, 139, 87, 0.08);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(46, 139, 87, 0.1);
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding: 10px 0;
+            border-bottom: 1px dotted rgba(46, 139, 87, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .info-row:hover {
+            background-color: rgba(46, 139, 87, 0.05);
+            border-radius: 6px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--dark-green);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        .info-label i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+            width: 18px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .info-value {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+            text-align: right;
+            flex: 1;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .corner-decoration {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--accent-gold);
+            opacity: 0.7;
+        }
+
+        .corner-decoration.top-left {
+            top: 12px;
+            left: 12px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .corner-decoration.top-right {
+            top: 12px;
+            right: 12px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-decoration.bottom-left {
+            bottom: 12px;
+            left: 12px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-decoration.bottom-right {
+            bottom: 12px;
+            right: 12px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .footer-section {
+            background: var(--light-green);
+            border-top: 2px solid var(--primary-green);
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .academic-year {
+            color: var(--dark-green);
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .year-highlight {
+            color: var(--primary-green);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .duty-book-cover {
+                width: 148mm !important;
+                height: 210mm !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .duty-book-cover {
+                width: calc(100vw - 20px);
+                height: calc((100vw - 20px) * 1.414);
+                max-width: 148mm;
+                max-height: 210mm;
+            }
+            
+            .school-name {
+                font-size: 18px;
+            }
+            
+            .duty-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 15mm 10mm;
+            }
+            
+            .school-logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .school-logo img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .school-name {
+                font-size: 16px;
+            }
+            
+            .duty-title {
+                font-size: 20px;
+            }
+        }
+
+        /* Animations */
+        .duty-book-cover {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .school-logo {
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-3px);
+            }
+        }
+
+        .info-row {
+            animation: slideInLeft 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .info-row:nth-child(1) { animation-delay: 0.1s; }
+        .info-row:nth-child(2) { animation-delay: 0.2s; }
+        .info-row:nth-child(3) { animation-delay: 0.3s; }
+        .info-row:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hover effects */
+        .duty-book-cover:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .school-logo:hover {
+            transform: scale(1.1) translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="duty-book-cover">
+        <!-- Decorative Elements -->
+        <div class="decorative-elements">
+            <div class="corner-decoration top-left"></div>
+            <div class="corner-decoration top-right"></div>
+            <div class="corner-decoration bottom-left"></div>
+            <div class="corner-decoration bottom-right"></div>
+        </div>
+
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="school-logo">
+                <img src="1.png" alt="Sri Kalyanathissa College Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <i class="fas fa-graduation-cap" style="display: none;"></i>
+            </div>
+            <div class="school-name">Sri Kalyanathissa College</div>
+            <div class="document-title">Official Document</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="title-section">
+                <h1 class="duty-title">PREFECT DUTY</h1>
+                <h2 class="duty-subtitle">Inspection Book</h2>
+            </div>
+
+            <div class="student-info">
+                <div class="info-row">
+                    <span class="info-label">
+                        <i class="fas fa-user"></i>
+                        Student Name
+                    </span>
+                    <span class="info-value">P. Shanudha Tirosh</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">
+                        <i class="fas fa-graduation-cap"></i>
+                        Grade
+                    </span>
+                    <span class="info-value">11-C</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">
+                        <i class="fas fa-shield-alt"></i>
+                        Position
+                    </span>
+                    <span class="info-value">Senior Prefect</span>
+                </div>
+                
+                <div class="info-row">
+                    <span class="info-label">
+                        <i class="fas fa-clipboard-check"></i>
+                        Duty Type
+                    </span>
+                    <span class="info-value">Prefect Duty Inspection</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer-section">
+            <div class="academic-year">
+                Academic Year <span class="year-highlight">2024-2025</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Enhanced interactive functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Print functionality with Ctrl+P
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    window.print();
+                }
+            });
+
+            // Enhanced hover effects for info rows
+            const infoRows = document.querySelectorAll('.info-row');
+            infoRows.forEach((row, index) => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(8px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                row.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Logo click interaction
+            const logo = document.querySelector('.school-logo');
+            logo.addEventListener('click', function() {
+                this.style.animation = 'none';
+                this.style.transform = 'scale(1.2) rotate(360deg)';
+                this.style.transition = 'transform 0.5s ease';
+                
+                setTimeout(() => {
+                    this.style.animation = 'logoFloat 3s ease-in-out infinite';
+                    this.style.transform = '';
+                    this.style.transition = '';
+                }, 500);
+            });
+
+            // Add a subtle parallax effect to decorative elements
+            document.addEventListener('mousemove', function(e) {
+                const decorativeElements = document.querySelectorAll('.corner-decoration');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                decorativeElements.forEach((element, index) => {
+                    const speed = (index + 1) * 0.5;
+                    const x = (mouseX - 0.5) * speed;
+                    const y = (mouseY - 0.5) * speed;
+                    element.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+
+            // Add print button functionality (optional)
+            const cover = document.querySelector('.duty-book-cover');
+            cover.addEventListener('dblclick', function() {
+                if (confirm('Would you like to print this duty book cover?')) {
+                    window.print();
+                }
+            });
+
+            // Smooth scroll animation for content reveal
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            // Apply observer to main sections
+            const sections = document.querySelectorAll('.header-section, .main-content, .footer-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
